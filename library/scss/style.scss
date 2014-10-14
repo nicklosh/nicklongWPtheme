@@ -1,0 +1,790 @@
+@import "_colours.scss";
+@import "_fonts.scss";
+@import "_mixin.scss";
+
+/*global*/
+html{
+	background-color: $blue;
+}
+
+body, a, button {
+   @include bodytext;
+}
+
+a{
+	text-decoration: none;
+
+}
+p {
+    font-family: 'open_sanslight';
+	line-height: 1.3em;
+	a{
+		@include transition(background);	
+		border-bottom: 1px solid;
+		&:hover, &:focus{
+			background: $shadowDark;
+			@include border-radius;
+		}
+	}
+}
+
+h1, h2, h3{
+	font-weight: 200; 
+	margin: 0;
+}
+
+h2{
+	font-size: 2.2em; 
+}
+
+.externalLink{
+	display: inline-block;
+	background: $shadowLight;
+	@include border-radius;
+	a{
+		display: block;
+		padding: 10px;
+		border-bottom: none;
+	}
+}
+
+/*in about me splash*/
+.contactList{
+	list-style-type: none;
+	padding: 0;
+	font-size: .8em;
+	li{
+		display: inline;
+		margin-right: 5px;
+		a{
+
+			&:hover, &:focus{
+				border-bottom:1px solid;
+			}
+		}	
+	}
+}
+
+#error{
+	font-size: 1.5em;
+	padding: 15px;
+}
+
+nav{
+	z-index: 300;
+	position: fixed;
+	top: 0;
+	left: 0;
+	@include transition(opacity);
+	width: 100%;
+	&:hover, &:focus{
+	}
+	ul{
+		padding:0 ;
+		margin:0;
+		li{
+			&#NL{
+				text-align: center;
+				float: left;
+				width: 20%;
+				i{
+					width: 19px;
+					text-align: center;
+				}
+				
+			}
+			&#navList{
+				display: block;
+				padding: 0 20%;
+				margin-left: 1px;
+				margin-right: 1px;
+				ul {
+					padding: 0;
+					li{
+						margin: 1px 0;
+						a{
+							display: block;
+							padding: 0 30px;
+							@include transition(padding);
+							font-size: 0;
+						}
+					}
+					&.active{
+						opacity: 1;
+						li{
+							a{
+								padding: 10px 30px;
+								font-size: inherit;
+							}
+						}
+					}
+				}
+			}
+			&#contact{
+				text-align: center;
+				width: 20%;
+				position: absolute;
+				top: 0;
+				right: 0
+			}
+			a{
+				@include transition(background);
+				display: block;
+				padding: 10px;
+				background: $shadowDarker;
+				&:hover, &:focus{
+					color:$black;
+					background: $whiteScreen;
+				}
+			}
+			a[href="#test"].onScreen{
+				background: $greenlight;
+				color: $black;
+			}
+			a[href="#crisis"].onScreen{
+				background: $redlight;
+				color: $black;
+			}
+			a[href="#results"].onScreen{
+				background: $aqualight;
+				color: $black;
+			}
+			a[href="#nicklosh"].onScreen{
+				background: $midgray;
+				color: $black;
+			}
+			a[href="#ameb"].onScreen{
+				background: $purplelight;
+				color: $black;
+			}
+			a[href="#syllabus"].onScreen{
+				background: $maroonlight;
+				color: $black;
+			}
+			a[href="#builder"].onScreen{
+				background: $redlight;
+				color: $black;
+			}
+
+			a[href="#test"]:hover{
+				background: $greenwhite;
+			}
+			a[href="#crisis"]:hover{
+				background: $redwhite;
+			}
+			a[href="#results"]:hover{
+				background: $aquawhite;
+			}
+			a[href="#nicklosh"]:hover{
+				background: $lightgray;
+			}
+			a[href="#ameb"]:hover{
+				background: $purplewhite;
+			}
+			a[href="#syllabus"]:hover{
+				background: $maroonwhite;
+			}
+			a[href="#builder"]:hover{
+				background: $redwhite;
+			}
+			span{ /*hide at small screen*/
+				display:none;
+			}
+		}
+	}
+}
+
+/*sections*/
+/*all sections*/
+.screen{
+	z-index: 200;
+	position: relative;
+	clear: both;
+	.content{
+		padding: 70px 10px 20px;
+		/*max-width: 940px;*/
+		width: 90%;
+		margin: 0 auto;
+		> br{
+			clear: both;
+		}
+	}
+	&#aboutme{
+		z-index: 300;
+		background: $blue;
+		.content{
+			padding-top: 20px;
+		}
+	}
+	&#test{
+	background: $green;
+	}
+	&#crisis{
+	background: $red;
+	}
+	&#results{
+		background: $aqua;
+	}
+	&#nicklosh{
+		background: $black;
+	}
+	&#ameb{
+	background: $purple;
+	}
+	&#syllabus{
+		background: $maroon;
+	}
+	&#builder{
+		background: $red;
+	}
+}
+footer{
+	background: $black;
+	padding: 10px;
+
+	p{
+		text-align: center;
+		a:hover{
+			background:$midgray;
+		}
+	}
+
+
+}
+
+/*examples link on splash*/
+#examples{
+	background: $bluelight;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	padding: 0;
+	@include transition(background);
+	a{
+		display: block;
+		padding: 10px 0;
+	}
+	h2{
+		font-size: 1.2em;
+	}
+	i{
+		font-size: 2em;
+		vertical-align: middle;
+		line-height: 0;
+		margin-top: -5px;
+	}
+	&:hover, &:focus{
+		background: $bluelighter;
+	}
+}
+
+.text{
+	/*width: 90%;*/
+	/*max-width: 550px;*/
+	margin: 0 auto 20px;
+}
+
+
+/*images*/
+.imageSwitcher{
+	position: relative;
+	/*max-width: 550px;*/
+	/*width: 550px;*/
+}
+.image{
+	width: 100%;
+	/*max-width: 275px;*/
+	display: none;
+	&.active{
+		display: block;
+		opacity: 0;
+	}
+	span{
+		display: inline-block;
+		width: 100%;
+		background-size: 100%;
+		background-repeat: no-repeat;
+		span{
+			display: inline-block;
+			height: 0;
+			padding-top: 72.7%;
+		}
+	}
+}
+
+#testImg1{
+	background-image: url("/img/screenshots-sml/test-sml.png");
+}
+#testImg2{
+	background-image: url("/img/screenshots-sml/test-sml.png");
+}
+#testImg3{
+	background-image: url("/img/screenshots-sml/test-sml.png");
+}
+#crisisImg1{
+	background-image: url("/img/screenshots-sml/crisis-sml.png");
+}
+#crisisImg2{
+	background-image: url("/img/screenshots-sml/crisis-sml.png");
+}
+#crisisImg3{
+	background-image: url("/img/screenshots-sml/crisis-sml.png");
+}
+#resultsImg1{
+	background-image: url("/img/screenshots-sml/results-hub--sml.png");
+}
+#resultsImg2{
+	background-image: url("/img/screenshots-sml/results-hub-detail-sml.png");
+}
+#resultsImg3{
+	background-image: url("/img/screenshots-sml/results-student-detail-sml.png");
+}
+#nickloshImg1{
+	background-image: url("/img/screenshots-sml/nicklosh-home-sml.png");
+}
+#nickloshImg2{
+	background-image: url("/img/screenshots-sml/nicklosh-music-sml.png");
+}
+#nickloshImg3{
+	background-image: url("/img/screenshots-sml/nicklosh-videos-sml.png");
+}
+#amebImg1{
+	background-image: url("/img/screenshots-sml/ameb-candiates-sml.png");
+}
+#amebImg2{
+	background-image: url("/img/screenshots-sml/ameb-detail-sml.png");
+}
+#amebImg3{
+	background-image: url("/img/screenshots-sml/ameb-ipad-sml1.png");
+}
+#syllabusImg1{
+	background-image: url("/img/screenshots-sml/syllabus-home-sml.png");
+}
+#syllabusImg2{
+	background-image: url("/img/screenshots-sml/syllabus-math-detail-sml.png");
+}
+#syllabusImg3{
+	background-image: url("/img/screenshots-sml/syllabus-filter-sml.png");
+}
+#builderImg1{
+	background-image: url("/img/screenshots-sml/pb-home-sml.png");
+}
+#builderImg2{
+	background-image: url("/img/screenshots-sml/pb-unit-sml.png");
+}
+#builderImg3{
+	background-image: url("/img/screenshots-sml/pb-userhelp-sml.png");
+}
+
+.controls{
+	/*width: 275px;*/
+	/*max-width: 275px;*/
+	i {
+		opacity: .3;
+		@include transition(opacity);
+	}
+	.prev , .next {
+		font-size: 2em;		
+		@include transition(background);
+		&:hover{
+			background:$shadowLight;
+			@include border-radius;
+		}
+
+		i{
+			padding:0 10px;
+			&:hover, &:focus{
+				opacity:1;
+				cursor: pointer;
+			}			
+		}
+	}
+	.prev{
+		float: left;
+	}
+	.next{
+		float: right;
+	}
+	.switchDisplay{
+		margin-left: 43%;
+		padding-top: 12px;
+		font-size: .8em;
+	}
+
+}
+
+
+#contactPage{
+	position: fixed;
+	top: 0;
+	z-index: 500;
+	width: 100%;
+	height: 100%;
+	padding-top:20px;
+	margin-bottom: 35px;
+	@include transition(background);
+	&.animated{
+		background: $shadowDark;
+ 	}
+}
+#contactForm{
+	width: 80%;
+	/*max-width: 800px;*/
+	margin: 0 auto;
+	background: $blue;
+	padding: 30px;
+	opacity: 0;
+	label{
+	display: block;
+	margin-bottom: 5px;
+	}
+	input{
+		line-height: 1.5em;
+		margin-bottom: 5px;
+	}
+	textarea{
+		line-height: 1.5em;	
+		margin-bottom: 5px;
+		&#comment{
+			width: 100%;
+			min-height: 100px;
+			resize:none;
+		}
+	}
+	p:last{
+		text-align: right;
+	}
+	#warning{
+		background: $blueshadow;
+		padding: 3px;
+		margin-left: 3px; 
+		margin-top: 3px;
+		white-space: nowrap;
+	}
+	button{
+		margin-right: 10px;
+		border:none;
+		padding: 10px 20px;
+		background-color: $shadowLight;
+		color: $white;
+		@include transition(background);
+		@include border-radius;
+		&:hover, &:focus{
+			background-color: $shadowDark;
+
+		}
+	}
+}
+
+
+@media screen and (min-width: 320px){
+	.image{
+	/*max-width: 550px;*/
+	/*width: 550px;*/
+	display: none;
+	&.active{
+		display: block;
+		opacity: 0;
+	}
+	span{
+		display: inline-block;
+		width: 100%;
+		background-size: 100%;
+		background-repeat: no-repeat;
+		span{
+			display: inline-block;
+			height: 0;
+			padding-top: 76.4%;
+		}
+	}
+}
+
+
+	#testImg1{
+		background-image: url("/img/screenshots/test1.png");
+	}
+	#testImg2{
+		background-image: url("/img/screenshots/test2.png");
+	}
+	#testImg3{
+		background-image: url("/img/screenshots/test3.png");
+	}
+	#crisisImg1{
+		background-image: url("/img/screenshots-sml/crisis-sml.png");
+	}
+	#crisisImg2{
+		background-image: url("/img/screenshots-sml/crisis-sml.png");
+	}
+	#crisisImg3{
+		background-image: url("/img/screenshots-sml/crisis-sml.png");
+	}
+	#resultsImg1{
+		background-image: url("/img/screenshots/results-hub.png");
+	}
+	#resultsImg2{
+		background-image: url("/img/screenshots/results-hub-detail.png");
+	}
+	#resultsImg3{
+		background-image: url("/img/screenshots/results-student-detail.png");
+	}
+	#nickloshImg1{
+		background-image: url("/img/screenshots/nicklosh-home.png");
+	}
+	#nickloshImg2{
+		background-image: url("/img/screenshots/nicklosh-music.png");
+	}
+	#nickloshImg3{
+		background-image: url("/img/screenshots/nicklosh-videos.png");
+	}
+	#amebImg1{
+		background-image: url("/img/screenshots/ameb-candiates.png");
+	}
+	#amebImg2{
+		background-image: url("/img/screenshots/ameb-detail.png");
+	}
+	#amebImg3{
+		background-image: url("/img/screenshots/ameb-ipad.png");
+	}
+	#syllabusImg1{
+		background-image: url("/img/screenshots/syllabus-home.png");
+	}
+	#syllabusImg2{
+		background-image: url("/img/screenshots/syllabus-math-detail.png");
+	}
+	#syllabusImg3{
+		background-image: url("/img/screenshots/syllabus-filter.png");
+	}
+	#builderImg1{
+		background-image: url("/img/screenshots/pb-home.png");
+	}
+	#builderImg2{
+		background-image: url("/img/screenshots/pb-unit.png");
+	}
+	#builderImg3{
+		background-image: url("/img/screenshots/pb-userhelp.png");
+	}
+	.imageSwitcher{
+		margin: 0 40px;
+		.controls{
+			.prev{
+				position: absolute;
+				top:50%;
+				left: -40px;
+			}
+			.next{
+				position: absolute;
+				top:50%;	
+				right: -40px;
+			}
+		}
+	}
+
+	.controls{
+	/*max-width: 550px;*/
+	/*width: 550px;*/
+	}
+
+}
+
+@media screen and (min-width: 550px){
+
+.screen#aboutme{
+	position: relative;
+	.content{
+		/*max-width: 80%;*/
+		width: 80%;
+		height: 300px;
+		margin: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+			h1{
+				font-size: 3em;
+				small{
+					font-size: 35%;
+					left: 125px;
+				}
+			}
+		}
+	}	
+
+#singlecontent{
+	/*max-width: 400px;*/
+	width: 400px;
+	height: 300px;
+	padding: none;
+	font-size: 2em;
+}
+	
+
+
+
+
+}
+@media screen and (min-width: 630px){
+	.screen#aboutme{
+		.content{
+			/*max-width: 60% ;*/
+			width: 60% ;
+		}
+	}
+
+
+}
+@media screen and (min-width: 650px){
+	.screen#aboutme{
+		.content{
+			p{
+				font-size: 1.4em;
+			}
+		}
+	}
+	.imageSwitcher{
+		margin: 0 auto;
+		width: 550px;
+	}
+}
+@media screen and (min-width: 700px){
+	.screen#aboutme{
+		.content{
+			p{
+				font-size: 1.4em;
+			}
+			.contactList{
+				font-size: 1em;
+			}
+		}
+	}
+		nav ul li span{
+		display: inline-block;
+	}
+}
+@media screen and (min-width: 900px){
+	.screen{
+		position: relative;
+		.content{
+			margin: auto;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			height: 450px;
+		}
+	}
+	.screen#aboutme{
+		#examples{
+			h2{
+				font-size: 1.5em;
+				a{
+					padding: 30px 0 50px;
+					i{
+						position: absolute;
+						bottom: 30px;
+						left: 50%;
+					}
+				}
+			}
+
+		}
+	}
+	.text{
+		float: right;
+		width: 30%;
+	}
+		.imageSwitcher{
+		width: 60%;
+		margin: 0 40px;
+	}
+
+
+}
+@media screen and (min-width: 950px){
+	.screen#aboutme .content .contactList{
+		font-size: 1.2em;
+		li{
+			margin-right: 10px;
+		}
+	}
+}
+@media screen and (min-width: 1030px){
+	.imageSwitcher{
+		width: 550px;
+	}
+	.screen .content{
+		width: 940px;
+	}
+}
+@media screen and (min-width: 1080px){
+	nav{ 
+		text-align: center;
+		> ul{
+			display: table;
+			margin: 0 auto;
+			-webkit-box-shadow: 825px 0px 0px 0px  $shadowDarker , -825px 0px 0px 0px  $shadowDarker ;
+			-moz-box-shadow: 830px 0px 0px 0px  $shadowDarker , -830px 0px 0px 0px  $shadowDarker ;
+			box-shadow: 825px 0px 0px 0px  $shadowDarker , -825px 0px 0px 0px  $shadowDarker ;
+			li#NL{
+				display: table-cell;
+				float: none;
+				text-align: right;
+				width: auto;
+			}
+			li#contact{
+				display: table-cell;
+				position: relative;
+				text-align: left;
+				width: auto;
+				a{
+					margin-left: 1px;
+				}
+			}
+			li#navList{
+				display: table-cell;
+				padding: 0;
+				a{
+					display: none;
+				}
+				ul, ul.active{
+					display: table-row;
+					li{
+						display: table-cell;
+						margin:0;
+						a{
+							@include transition(background);
+							padding: 10px; 
+							font-size: inherit;
+							margin-left: 1px;
+						}
+					}
+				}
+			}
+		}
+	}	
+}
+
+@media screen and (min-width: 1200px){
+	.screen#aboutme{
+		.content .contactList{
+			font-size: 1.4em;
+			li{
+				margin-right: 20px;
+			}
+		}
+		#examples{
+			h2{
+				font-size: 1.7em;
+				a{
+					padding: 40px 0 80px;
+					i{
+						bottom: 45px;
+					}
+				}
+			}
+
+		}
+	}
+}
